@@ -13,17 +13,25 @@ body {
   border: none;
 }
 .search-box {
-  border: 1px solid rgb(3, 118, 211);
-  width: 281px;
+  border: 0.2rem solid #2c3e50;
+  width: 50rem;
   border-radius: 5px;
   margin: auto;
   margin-top: 50px;
-  border-right: none;
+  display: flex;
+  justify-content: space-between;
 }
 .search-button {
   padding: 10px 50px;
   border-radius: 25px;
-  margin-left: 20px;
+  background-color: #e74c3c;
+  color: white;
+
+}
+.search-button span {
+  margin-top: 5px;
+  display: inline-block;
+  padding: 0 10px;
 }
 #all-products {
   display: grid;
@@ -34,19 +42,41 @@ body {
   margin: auto;
   align-items: center;
   justify-content: center;
+  grid-gap: 1rem;
+  padding: 3rem;
 }
 .single-product {
+  border: .2rem solid #2d3436;
+  border-radius: 1rem;
   padding: 10px;
+  transition: 0.6s;
+}
+.clr-orange {
+  color: #e74c3c;
+}
+.clr-orange:hover {
+  color: #2c3e50;
   transition: 0.6s;
 }
 .single-product:hover {
   box-shadow: 4px 4px 7px gray;
-  border-radius: 10px;
-  border: 1px solid cyan;
+  border-radius: 1rem;
 }
 .product-image {
   width: 150px;
   height: 150px;
+}
+
+/* Buy Now Button Design */
+.buy-now {
+  background-color: #2d3436;
+  color: #fff;
+  padding: 0.7rem 2rem;
+  border-radius: 0.3rem;
+  border: none;
+}
+.buy-now:hover {
+  color: #fff;
 }
 .cart {
   width: 350px;
@@ -60,6 +90,30 @@ body {
 .cart-main {
   padding-right: 30px;
 }
+.parces button {
+  background-color: #e74c3c;
+  color: #fff;
+}
+#product-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.preview-product {
+  display: flex;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  text-align: justify;
+
+}
+.preview-product .product-image {
+  width: 100%;
+  height: auto;
+  padding-right: 3rem;
+}
+
+
 @media only screen and (max-width: 768px) {
   #all-products {
     display: grid;

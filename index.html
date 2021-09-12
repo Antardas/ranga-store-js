@@ -20,20 +20,31 @@
 <body>
   <header></header>
   <main class="main">
+    <!-- Search Product  -->
     <div class="search-field">
       <div class="search-box">
         <input id="input-field" class="search-field" type="text" />
-        <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
+        <button type="button" class="btn search-button" data-toggle="button" aria-pressed="false"
           autocomplete="off" id="search-btn" onclick="loadProducts()">
-          Search
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
+              viewBox="0 0 16 16">
+              <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+            </svg>
+          </span>
         </button>
       </div>
     </div>
+
+    <!-- Show Prodcut Detail -->
     <div class="row">
       <div class="col-md-9 col-lg-9 col-sm-7">
-        <div id="all-products" class="">
-        </div>
+          <div id="product-detail"></div>
+          <div id="all-products" class="all-products">
+        </div>>
       </div>
+      <!-- Start Cart Section -->
       <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
         <div class="cart" id="my-cart">
           <table class="table">
@@ -49,7 +60,7 @@
             <tbody>
               <tr>
                 <th>Total Added-Products:</th>
-                <td>  <span id="total-Products">0</span></td>
+                <td> <span id="total-Products">0</span></td>
                 <td></td>
                 <td></td>
               </tr>
@@ -79,7 +90,7 @@
             </tbody>
           </table>
           <div class="parces text-center">
-            <button class="btn btn-primary text-center">Buy Now</button>
+            <button class="btn  text-center">Buy Now</button>
           </div>
         </div>
       </div>

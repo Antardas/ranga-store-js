@@ -1,9 +1,21 @@
 const loadProducts = () => {
+  document.getElementById('all-products').textContent = '';
   // const url = `https://fakestoreapi.com/products`;
   // fetch(url)
   fetch('../js/data.json')
     .then((response) => response.json())
     .then((data) => showProducts(data));
+  const searchFeild = document.getElementById('input-field').value;
+
+  
+
+  if (searchFeild) {
+    const url = `https://fakestoreapi.com/products`
+    fetch('../js/data.json')
+      .then((response) => response.json())
+      .then((data) => showProducts(data));
+  }
+
 };
 loadProducts();
 
@@ -20,12 +32,12 @@ const showProducts = (products) => {
       <div>
     <img class="product-image" src=${image}></img>
       </div>
-      <h3>${product.title}</h3>
+      <h3 class="clr-orange">${product.title}</h3>
       <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.price}</h2>
+      <h2>Price: $ <span class="clr-orange">${product.price}</span> </h2>
       <h5>⭐<span>${product.rating.rate}</span>(${product.rating.count})</h5>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now ">Add to Cart</button>
+      <button id="details-btn" onclick="getProduct(${product.id})" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -85,5 +97,31 @@ const updateTotal = () => {
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
+const getProduct =(id) => {
+
+  const url = `https://fakestoreapi.com/products/${id}`;
+  fetch(url)
+    .then(res => res.json())
+  .then(data => productDetailShow(data))
+}
+const productDetailShow = (product) => {
+  const productDetail = document.getElementById('product-detail');
+  productDetail.textContent = '';
+  const div = document.createElement('div');
+  div.className = 'preview-product'
+  div.innerHTML = `
+    <div>
+      <img class="product-image" src=${product.image}></img>
+    </div>
+    <div>
+    <h3 class="clr-orange">${product.title}</h3>
+    <p>Category: ${product.category}</p>
+    <p>${product.description}</p>
+    <h5>⭐<span>${product.rating.rate}</span>(${product.rating.count})</h5>
+    </div>
+      `;
+  productDetail.appendChild(div)
+  
+}
 
 
