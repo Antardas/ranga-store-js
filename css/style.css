@@ -67,6 +67,7 @@ body {
   height: 150px;
 }
 
+
 /* Buy Now Button Design */
 .buy-now {
   background-color: #2d3436;
@@ -77,6 +78,10 @@ body {
 }
 .buy-now:hover {
   color: #fff;
+}
+.buy-message {
+  text-align: center;
+  color: #2ecc71;
 }
 .cart {
   width: 350px;

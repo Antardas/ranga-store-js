@@ -1,3 +1,5 @@
+const buyMessage = document.getElementById('buy-message');
+
 const loadProducts = () => {
   document.getElementById('all-products').textContent = '';
   // const url = `https://fakestoreapi.com/products`;
@@ -7,11 +9,9 @@ const loadProducts = () => {
     .then((data) => showProducts(data));
   const searchFeild = document.getElementById('input-field').value;
 
-  
-
   if (searchFeild) {
     const url = `https://fakestoreapi.com/products`
-    fetch('../js/data.json')
+    fetch(url)
       .then((response) => response.json())
       .then((data) => showProducts(data));
   }
@@ -96,14 +96,18 @@ const updateTotal = () => {
     getInputValue("price") + getInputValue("delivery-charge") +
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal.toFixed(2);
+  buyMessage.innerText = '';
 };
+// Get Prodocut usign Id
 const getProduct =(id) => {
 
   const url = `https://fakestoreapi.com/products/${id}`;
   fetch(url)
     .then(res => res.json())
-  .then(data => productDetailShow(data))
+    .then(data => productDetailShow(data));
 }
+
+// Show Product Deatil in UI
 const productDetailShow = (product) => {
   const productDetail = document.getElementById('product-detail');
   productDetail.textContent = '';
@@ -120,8 +124,16 @@ const productDetailShow = (product) => {
     <h5>⭐<span>${product.rating.rate}</span>(${product.rating.count})</h5>
     </div>
       `;
-  productDetail.appendChild(div)
+  productDetail.appendChild(div);
+  buyMessage.innerText = '';
   
 }
-
-
+// Show message Buy Now Product
+document.getElementById('buy').addEventListener('click', () => {
+  document.getElementById("total-Products").innerText = 0;
+  document.getElementById("price").innerText = 0;
+  document.getElementById("delivery-charge").innerText = 0;
+  document.getElementById("total-tax").innerText = 0;
+  document.getElementById("total").innerText = 0;
+  buyMessage.innerText = 'Thanks for purchasing our product!!!';
+})
