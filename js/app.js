@@ -97,6 +97,8 @@ const updateTotal = () => {
   document.getElementById("total").innerText = grandTotal.toFixed(2);
   buyMessage.innerText = '';
 };
+
+
 // Get Prodocut usign Id
 const getProduct =(id) => {
 
