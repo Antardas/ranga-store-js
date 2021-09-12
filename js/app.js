@@ -129,12 +129,14 @@ const productDetailShow = (product) => {
 }
 // Show message Buy Now Product
 document.getElementById('buy').addEventListener('click', () => {
-  document.getElementById("total-Products").innerText = 0;
-  document.getElementById("price").innerText = 0;
-  document.getElementById("delivery-charge").innerText = 0;
-  document.getElementById("total-tax").innerText = 0;
-  document.getElementById("total").innerText = 0;
-  // Remove Product Detail Section 
-  document.getElementById('product-detail').textContent = '';
-  buyMessage.innerText = 'Thanks for purchasing our product!!!';
+  if (count != 0) {
+    document.getElementById("total-Products").innerText = 0;
+    document.getElementById("price").innerText = 0;
+    document.getElementById("delivery-charge").innerText = 0;
+    document.getElementById("total-tax").innerText = 0;
+    document.getElementById("total").innerText = 0;
+    // Remove Product Detail Section 
+    document.getElementById('product-detail').textContent = '';
+    buyMessage.innerText = 'Thanks for purchasing our product!!!';
+  }
 })
