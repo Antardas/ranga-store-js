@@ -3,6 +3,13 @@ body {
   font-family: "Montserrat", sans-serif;
   background-color: #2c3e50 !important;
 }
+
+/* Company Name */
+.company-name {
+  text-align: center;
+  
+}
+/* Search Feild &n Button Style */
 .search-field {
   border: none;
   border-radius: 50px;
@@ -49,6 +56,7 @@ body {
   grid-gap: 3rem;
   padding: 3rem;
 }
+/* Single Product Style */
 .single-product {
   border: .2rem solid #e74c3c;
   border-radius: 1rem;
@@ -58,6 +66,15 @@ body {
   min-height: 550px;
   position: relative;
 }
+.single-product:hover {
+  /* box-shadow: 4px 4px 7px gray; */
+box-shadow:  -8px -8px 16px #1f2b38,
+             8px 8px 16px #395168;
+  border-radius: 1rem;
+}
+
+
+/* Icons Color */
 .fas {
   color: gold;
   margin-right: 10px;
@@ -68,17 +85,10 @@ body {
 .clr-orange:hover {
   transition: 0.6s;
 }
-.single-product:hover {
-  /* box-shadow: 4px 4px 7px gray; */
-box-shadow:  -8px -8px 16px #1f2b38,
-             8px 8px 16px #395168;
-  border-radius: 1rem;
-}
 .product-image {
   width: 150px;
   height: 150px;
 }
-
 
 /* Buy Now Button Design */
 .buy-now {
@@ -95,6 +105,8 @@ box-shadow:  -8px -8px 16px #1f2b38,
   text-align: center;
   color: #2ecc71;
 }
+
+/* Cart Style */
 .cart {
   width: 350px;
   /* border: 1px solid green; */
@@ -119,6 +131,8 @@ box-shadow:  -8px -8px 16px #1f2b38,
   justify-content: center;
 
 }
+
+/* Product Detila Style */
 .preview-product {
   display: flex;
   margin-top: 2rem;
