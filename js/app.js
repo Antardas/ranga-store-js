@@ -2,9 +2,8 @@ const buyMessage = document.getElementById('buy-message');
 
 const loadProducts = () => {
   document.getElementById('all-products').textContent = '';
-  // const url = `https://fakestoreapi.com/products`;
-  // fetch(url)
-  fetch('../js/data.json')
+  const url = `https://fakestoreapi.com/products`;
+  fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
   const searchFeild = document.getElementById('input-field').value;
