@@ -2,8 +2,9 @@ const buyMessage = document.getElementById('buy-message');
 
 const loadProducts = () => {
   document.getElementById('all-products').textContent = '';
-  const url = `https://fakestoreapi.com/products`;
-  fetch(url)
+  // const url = `https://fakestoreapi.com/products`;
+  // fetch(url)
+  fetch('../js/data.json')
     .then((response) => response.json())
     .then((data) => showProducts(data));
   const searchFeild = document.getElementById('input-field').value;
@@ -14,6 +15,7 @@ const loadProducts = () => {
       .then((response) => response.json())
       .then((data) => showProducts(data));
   }
+  searchFeild.innerText = 0;
 
 };
 loadProducts();
@@ -34,9 +36,15 @@ const showProducts = (products) => {
       <h3 class="clr-orange">${product.title}</h3>
       <p>Category: ${product.category}</p>
       <h2>Price: $ <span class="clr-orange">${product.price}</span> </h2>
-      <h5>⭐<span>${product.rating.rate}</span>(${product.rating.count})</h5>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now ">Add to Cart</button>
-      <button id="details-btn" onclick="getProduct(${product.id})" class="btn btn-danger">Details</button></div>
+
+      <div class="count"><span><i class="fas fa-star"></i>${product.rating.rate}</span> <span><i class="fas fa-users"></i>${product.rating.count}</span> </div>
+    <div class="button">
+      <div>
+        <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now ">Add to Cart</button>
+        <button id="details-btn" onclick="getProduct(${product.id})" class="btn btn-danger">Details</button>
+      </div>
+      </div>
+    </div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -100,7 +108,7 @@ const updateTotal = () => {
 
 
 // Get Prodocut usign Id
-const getProduct =(id) => {
+const getProduct = (id) => {
 
   const url = `https://fakestoreapi.com/products/${id}`;
   fetch(url)
@@ -119,15 +127,19 @@ const productDetailShow = (product) => {
       <img class="product-image" src=${product.image}></img>
     </div>
     <div>
-    <h3 class="clr-orange">${product.title}</h3>
+    <h4 class="clr-orange">${product.title}</h4>
     <p>Category: ${product.category}</p>
     <p>${product.description}</p>
-    <h5>⭐<span>${product.rating.rate}</span>(${product.rating.count})</h5>
+
+      <div class="count">
+      <span><i class="fas fa-star"></i>${product.rating.rate}</span> 
+      <span><i class="fas fa-users"></i>${product.rating.count}</span>
+      </div>
     </div>
       `;
   productDetail.appendChild(div);
   buyMessage.innerText = '';
-  
+
 }
 // Show message Buy Now Product
 document.getElementById('buy').addEventListener('click', () => {
